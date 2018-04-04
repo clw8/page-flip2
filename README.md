@@ -6,7 +6,7 @@ The plugin uses the code found at https://www.html5rocks.com/en/tutorials/casest
 
 Within the code, the user may play around with the variables. Please note that if you use the CENTER_COVER variable, then you will have to include Greensock's TweenLite and CSSPlugin as a dependency (see example-index.html to get the appropriate CDN script tags located in the head)
 
-The user variables are as follows: 
+The user variables within the script.js are changeable, and are as follows: 
 - CENTER_COVER : triggers animations to center the booklet when the front or back cover is closed
 - PAGE_CORNER_RADIUS : gives a border radius to the pages
 - PAGE_WIDTH : the width of one of the pages
