@@ -14,4 +14,9 @@ The user variables are as follows:
 - CANVAS_PADDING : padding between the pages and the HTML canvas
 
 Setup:
+
+Every page must be inside the #pages div, and have the class "page-div".
+Every page on the left side of the booklet (as you open the booklet up) must ahve the class "odd-page".
+  For every page on the right side, use the class "even-page"
+The user must also include the canvas and surrounding div with id "book", as shown in the image / example-index.html
 ![Example Image](https://raw.githubusercontent.com/clw8/page-flip2/master/page-flip2.png)
