@@ -1,0 +1,66 @@
+
+body, h2, p {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #444;
+	color: #333;
+	font-family: Helvetica, sans-serif;
+}
+
+#book {
+	background-size: 100% 100%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -400px;
+	margin-top: -125px;
+}
+
+
+#pages .odd-page {
+	background: url("../img/paper.png") no-repeat;
+	background-size:cover;
+	display: block;
+	position: absolute;
+	overflow: hidden;
+}
+
+#pages .even-page {
+	background: url("../img/paper.png") no-repeat;
+	background-size:cover;
+	display: block;
+	position: absolute;
+	overflow: hidden;
+}
+
+#pages .soft-back-cover {
+	background: url("../img/paper.png") no-repeat;
+	background-size:cover;
+	display: block;
+	position: absolute;
+	overflow: hidden;
+}
+
+#pages .soft-cover {
+	background: url("../img/paper.png") no-repeat;
+	background-size:cover;
+	display: block;
+	position: absolute;
+	overflow: hidden;
+}
+
+
+#pages div {
+	display: block;
+	position: absolute;
+	overflow:hidden;
+
+}
+
+#pageflip-canvas {
+	position: absolute;
+	z-index: 100;
+}

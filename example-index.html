@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Page Flip Plugin</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+
+  <link rel="stylesheet" href="css/pageflip-style.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenLite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/CSSPlugin.min.js"></script>
+
+</head>
+<body>
+
+
+
+    <div id="book">
+			<canvas id="pageflip-canvas"></canvas>
+
+			<div id="pages">
+        <div class="odd-page-div">
+          <img class="soft-cover" src="img/booklet front.jpg"/>
+        </div>
+        <div class="odd-page-div">
+          <img class="odd-page"  src="img/page1.jpg"/>
+      </div>
+        <div class="page-div">
+        <img class="even-page"  src="img/page2.jpg"/>
+      </div>
+      <div class="odd-page-div">
+        <img class="odd-page"  src="img/page3.jpg"/>
+    </div>
+      <div class="page-div">
+      <img class="even-page"  src="img/page4.jpg"/>
+    </div>
+      <div class="odd-page-div">
+        <img  class="soft-back-cover"  src="img/booklet back.jpg"/>
+    </div>
+	</div>
+</div>
+
+
+
+  <script type="text/javascript" src="js/script.js"></script>
+
+
+</body>
+</html>
