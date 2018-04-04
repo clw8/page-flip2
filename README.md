@@ -13,10 +13,14 @@ The user variables are as follows:
 - PAGE_HEIGHT : the height of one of the pages
 - CANVAS_PADDING : padding between the pages and the HTML canvas
 
-Setup:
+Setup (use image or see text below):
+- Pages will be displayed as if the booklet has already been opened, unless you specify one of the pages as being the cover. (for the front cover, please use the class "soft-cover", for the back cover, used the class "soft-back-cover"
+- Every page must be inside the #pages div, and have the class "page-div".
+- Every page on the left side of the booklet (as you open the booklet up) must ahve the class "odd-page".
+- For every page on the right side, use the class "even-page"
+- The user must also include the canvas and surrounding div with id "book", as shown in the image / example-index.html
 
-Every page must be inside the #pages div, and have the class "page-div".
-Every page on the left side of the booklet (as you open the booklet up) must ahve the class "odd-page".
-  For every page on the right side, use the class "even-page"
-The user must also include the canvas and surrounding div with id "book", as shown in the image / example-index.html
 ![Example Image](https://raw.githubusercontent.com/clw8/page-flip2/master/page-flip2.png)
+
+
+Not yet implemented: hard covers (only paper/soft covers are available to use on the current version)
