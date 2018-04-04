@@ -13,7 +13,7 @@ The user variables are as follows:
 - PAGE_HEIGHT : the height of one of the pages
 - CANVAS_PADDING : padding between the pages and the HTML canvas
 
-Setup (use image or see text below):
+**Setup (use image or see text below):**
 - Pages will be displayed as if the booklet has already been opened, unless you specify one of the pages as being the cover. (for the front cover, please use the class "soft-cover", for the back cover, used the class "soft-back-cover"
 - Every page must be inside the #pages div, and have the class "page-div".
 - Every page on the left side of the booklet (as you open the booklet up) must ahve the class "odd-page".
