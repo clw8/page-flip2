@@ -122,10 +122,6 @@ if(backCovers.length > 0){
 
 			oddpage: oddPages[j],
 
-			cover: covers[0],
-
-			coverActive: coverActive,
-			// True while the page is being dragged
 			dragging: false,
 
 			dragFromRight: false,
