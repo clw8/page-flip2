@@ -3,6 +3,7 @@
 
 	//User can change these variables
 	var PAGE_WIDTH = 400;
+	
 	var PAGE_HEIGHT = 400;
 
 
