@@ -14,4 +14,4 @@ The user variables are as follows:
 - CANVAS_PADDING : padding between the pages and the HTML canvas
 
 Setup:
-![Example Image](http://url/to/img.png)
+![Example Image](https://raw.githubusercontent.com/clw8/page-flip2/master/page-flip2.png)
