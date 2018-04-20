@@ -27,7 +27,6 @@
 	var CenteredBackCover = false;
 
 	var movingDiv = document.getElementById( "moving-div" );
-
 	var mouse = { x: 0, y: 0 };
 
 	var flips = [];
@@ -113,7 +112,6 @@ if(backCovers.length > 0){
 				oddPages[0].style.width = PAGE_WIDTH + "px";
 			}
 		}
-
 
 				flips.push( {
 			// Current progress of the flip (left -1 to right +1)
