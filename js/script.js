@@ -2,12 +2,13 @@
 (function() {
 
 	//User can change these variables
-	var PAGE_WIDTH = 400;
-	
-	var PAGE_HEIGHT = 400;
 
+  var CANVAS_PADDING = window.innerWidth < 800 ? 80 : 160;
 
-	var CANVAS_PADDING = 60;
+//responsive widths and heights
+	var PAGE_WIDTH = Math.min((window.innerWidth - CANVAS_PADDING)/2, 400);
+
+	var PAGE_HEIGHT = Math.min((window.innerWidth - CANVAS_PADDING)/2, 400);
 
 	var CENTER_COVER = true;
 
@@ -20,6 +21,7 @@
 
 	var canvas = document.getElementById( "pageflip-canvas" );
 	var context = canvas.getContext( "2d" );
+  var book = document.getElementById('book');
 
 	var CenteredFrontCover = CENTER_COVER;
 	var CenteredBackCover = false;
@@ -31,11 +33,12 @@
 	var flips = [];
 	var activeFlip = {};
 
-	var book = document.getElementById( "book" );
+
 	var BOOK_HEIGHT = PAGE_HEIGHT;
 	var BOOK_WIDTH = PAGE_WIDTH * 2;
 	book.style.width = BOOK_WIDTH  + "px";
 	book.style.height = BOOK_HEIGHT  + "px";
+  book.style.left = (window.innerWidth - BOOK_WIDTH)/2 + "px";
 
 
 	// List of all the page elements in the DOM
@@ -67,7 +70,7 @@ if(backCovers.length > 0){
 }
 
 
-	// Organize the style of our pages and create the flip definitions
+	// Organize the CSS of our pages and create the flip definitions
 	for( var i = 0, len = evenPages.length; i < len; i++ ) {
 		evenPages[i].style.zIndex = len - i;
 		evenPages[i].style.width = PAGE_WIDTH + "px";
@@ -92,7 +95,6 @@ if(backCovers.length > 0){
 		if(softCover.length > 0){
 			j = i;
 			cover = softCover[0];
-
 			oddPages[o].style.width = "0px";
 			oddPages[0].style.width = "0px";
 		}
@@ -133,7 +135,6 @@ if(backCovers.length > 0){
 	}
 
 
-console.log(flips);
 	// Resize the canvas to match the book size
 	canvas.width = BOOK_WIDTH + ( CANVAS_PADDING * 2 );
 	canvas.height = BOOK_HEIGHT + ( CANVAS_PADDING * 2);
@@ -159,14 +160,41 @@ console.log(flips);
 
 	function mouseMoveHandler( event ) {
 		// Offset mouse position so that the top of the book spine is 0,0
-		mouse.x = event.clientX - book.offsetLeft - ( BOOK_WIDTH / 2 );
-		mouse.y = event.clientY - book.offsetTop;
-	}
+		mouse.x = event.clientX - book.offsetLeft - book.parentElement.offsetLeft - ( BOOK_WIDTH / 2 );
+		mouse.y = event.clientY - book.offsetTop - book.parentElement.offsetTop;
+    //change mouse pointer when on a page
+    //has a cover
+    book.style.cursor = "default";
+
+    if(covers.length > 0  || backCovers.length > 0){
+      if (CenteredFrontCover==true || CenteredBackCover==true){
+        if(-PAGE_WIDTH/2< mouse.x && mouse.x < PAGE_WIDTH/2) {
+        book.style.cursor = "pointer";
+        }
+
+      }
+      else{
+        if( page == 0 && 0 < mouse.x  && mouse.x < PAGE_WIDTH){
+             book.style.cursor = "pointer";
+        }
+        else if( page == flips.length && -PAGE_WIDTH < mouse.x && mouse.x < 0){
+          book.style.cursor = "pointer";
+        }
+        else if(page!== 0 & page!== flips.length && Math.abs(mouse.x) < PAGE_WIDTH)
+        book.style.cursor = "pointer";
+      }
+    }
+  //no cover
+    else{
+      if(Math.abs(mouse.x) < PAGE_WIDTH){
+        book.style.cursor = "pointer";
+      }
+    }
+};
+
 
 
 	function mouseDownHandler( event ) {
-		console.log(page)
-		console.log(CenteredFrontCover + "FRONT COVER")
 		// Make sure the mouse pointer is inside of the book
 		if (Math.abs(mouse.x) < PAGE_WIDTH) {
 			//scenario for if CENTER_COVER variable is true
@@ -208,7 +236,6 @@ console.log(flips);
 
 	function mouseUpHandler( event ) {
 		for( var i = 0; i < flips.length; i++ ) {
-			console.log(flips)
 
 			// If this flip was being dragged, animate to its destination
 			if( flips[i].dragging ) {
@@ -250,7 +277,6 @@ console.log(flips);
 							flips[i].target = 1;
 					}
 			}
-			console.log("page changed to" + page)
 			flips[i].dragging = false;
 			flips[i].dragFromRight = false;
 			flips[i].dragFromLeft = false;
@@ -300,8 +326,6 @@ console.log(flips);
 
 
 	}
-
-
 
 
 
@@ -446,7 +470,7 @@ console.log(flips);
 
 
 		context.strokeStyle = 'rgba(0,0,0,'+((strength*0.2) + 0.25) +')';
-		context.lineWidth = 0.5;
+		context.lineWidth = 0.6;
 
 		// Draw the folded piece of paper
 		context.beginPath();
