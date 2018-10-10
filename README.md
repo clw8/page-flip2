@@ -24,3 +24,4 @@ The user variables within the script.js are changeable, and are as follows:
 
 
 Not yet implemented: hard covers (only paper/soft covers are available to use on the current version)
+Mobile version also not working
